@@ -9,12 +9,8 @@ export function createStore () {
       articles: require('@/data/articles.json'),
       drawer: false,
       items: [{
-          text: 'Home',
+          text: '主页',
           to: '/'
-        },
-        {
-          text: 'About',
-          href: '#about'
         }
       ]
     },

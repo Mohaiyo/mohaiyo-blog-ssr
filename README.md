@@ -6,7 +6,7 @@
 
 **mohaiyo-server**开发基于vuetify-ssr-template模板，由于模板比较旧，已经对webpack2等依赖升级到了webpack4。是博客前端的后台实现。是对原来博客的升级，使用vue-ssr优化博客的seo.
 
-目前其他页面正在开发中...
+目前其他页面正在开发中
 
 ## 主要技术栈
 

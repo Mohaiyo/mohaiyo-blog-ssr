@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import '../plugins/vuetify'
 import '../plugins/base'
-import 'vuetify/dist/vuetify.css'
+import 'vuetify/dist/vuetify.min.css'
 import App from './App.vue'
 import Components from 'components/_index'
 
