@@ -64,8 +64,7 @@
     stroke-dashoffset: 20%;
   }
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 960px) {
   .logo-icon {
     width: 48px;
     height: 48px;

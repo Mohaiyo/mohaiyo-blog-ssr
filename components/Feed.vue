@@ -73,7 +73,7 @@
     }),
 
     computed: {
-      ...mapState(['articles']),
+      ...mapState('article', ['articles']),
       pages () {
         return Math.ceil(this.articles.length / 11)
       },

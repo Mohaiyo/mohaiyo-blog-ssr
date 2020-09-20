@@ -7,7 +7,7 @@
       :height="value.prominent ? 450 : 350"
       color="grey lighten-1"
       dark
-      href="#!"
+      :href="`/post/${value.slug}`"
     >
       <v-img
         :src="require(`@/assets/articles/${value.hero}`)"
@@ -28,15 +28,19 @@
               color="grey darken-3"
               text-color="white"
               small
-              @click.stop=""
+              @click.stop="toPostDetail(value)"
             >
               {{ value.category }}
             </v-chip>
             <h3 class="title font-weight-bold mb-2">
               {{ value.title }}
             </h3>
+            <h3 class="body-2 mb-2">
+              {{ value.description }}
+            </h3>
             <div class="caption">
-              {{ value.author }}<br>Date
+              {{ value.author }}<br>
+              {{ value.date }}
             </div>
           </v-flex>
           <v-flex align-self-end>
@@ -45,7 +49,7 @@
               color="primary"
               label
               small
-              @click.stop=""
+               @click.stop="toPostDetail(value)"
             >
               Read More
             </v-chip>
@@ -76,7 +80,12 @@
           'md4': this.size === 3
         }
       }
-    }
+    },
+    methods: {
+      toPostDetail(value) {
+        this.$router.push({ path: `/post/${value.slug}`})
+      }
+    },
   }
 </script>
 

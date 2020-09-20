@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-scroll="scrollHandle">
     <core-toolbar />
 
     <core-drawer />
@@ -8,7 +8,7 @@
 
     <core-footer />
 
-    <core-cta />
+    <back-to-top ref="backToTop" :offset-top="offsetTop" />
   </v-app>
 </template>
 
@@ -18,7 +18,7 @@
   export default {
     name: 'App',
     components: {
-      CoreCta: () => import('components/core/Cta'),
+      BackToTop: () => import('components/core/BackToTop'),
       CoreDrawer: () => import('components/core/Drawer'),
       CoreFooter: () => import('components/core/Footer'),
       CoreToolbar: () => import('components/core/Toolbar'),
@@ -27,9 +27,14 @@
     mixins: [Meta],
     data () {
       return {
-
+        offsetTop: 0
       }
-    }
+    },
+    methods: {
+      scrollHandle(e) {
+        this.offsetTop = e.target.body.scrollTop || e.target.documentElement.scrollTop; // safari && chrome
+      }
+    },
   }
 </script>
 

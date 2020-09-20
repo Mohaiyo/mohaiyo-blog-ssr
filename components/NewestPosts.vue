@@ -38,7 +38,7 @@
 
   export default {
     computed: {
-      ...mapState(['articles'])
+      ...mapState('article', ['articles'])
     }
   }
 </script>

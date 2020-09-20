@@ -1,0 +1,10 @@
+const TOGGLE_DRAWER = 'TOGGLE_DRAWER' // 手机端侧边栏弹窗
+const SET_DRAWER = 'SET_DRAWER' // 手机端侧边栏弹窗
+const TOGGLE_SIGNIN = 'TOGGLE_SIGNIN' // 登录
+const TOGGLE_SIGNUP = 'TOGGLE_SIGNUP' // 注册
+export {
+  TOGGLE_DRAWER,
+  SET_DRAWER,
+  TOGGLE_SIGNIN,
+  TOGGLE_SIGNUP
+}

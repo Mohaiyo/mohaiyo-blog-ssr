@@ -1,6 +1,6 @@
 <template>
   <v-toolbar app light>
-    <v-icon class="hidden-md-and-up" @click="toggleDrawer">mdi-menu</v-icon>
+    <v-icon class="hidden-md-and-up" @click="TOGGLE_DRAWER">menu</v-icon>
     <v-container mx-auto py-0>
       <v-layout align-center>
         <logo />
@@ -22,12 +22,13 @@
           solo-inverted
           style="max-width: 300px;"
         />
-        <div>
-          <v-btn flat @click="signinHandle">Sign in</v-btn>
-          <v-btn color="info" @click="signupHandle">Sign up</v-btn>
+        <div class="hidden-sm-and-down">
+          <v-btn flat @click="signinHandle">登 录</v-btn>
+          <v-btn color="info" @click="signupHandle">注 册</v-btn>
         </div>
       </v-layout>
       <sign-in ref="signInRef" />
+      <sign-up ref="signUpRef" />
     </v-container>
   </v-toolbar>
 </template>
@@ -35,20 +36,27 @@
 <script>
 import Logo from "./Logo";
 import SignIn from '../User/SignIn'
+import SignUp from '../User/SignUp'
 // Utilities
 import { mapGetters, mapMutations } from "vuex";
+import { TOGGLE_DRAWER, TOGGLE_SIGNIN, TOGGLE_SIGNUP } from 'store/mutation-type'
 
 export default {
   name: "Toolbar",
   components: {
     Logo,
-    SignIn
+    SignIn,
+    SignUp
   },
   computed: {
-    ...mapGetters(["links"])
+    ...mapGetters('menu', ["links"])
   },
   methods: {
-    ...mapMutations(["toggleDrawer"]),
+    ...mapMutations('user', {
+      TOGGLE_DRAWER,
+      TOGGLE_SIGNIN,
+      TOGGLE_SIGNUP
+    }),
     menuHandle(e, item) {
       e.stopPropagation();
 
@@ -57,10 +65,10 @@ export default {
       this.$vuetify.goTo(item.href);
     },
     signinHandle() {
-      this.$refs.signInRef.signInVisible = true
+      this.TOGGLE_SIGNIN()
     },
     signupHandle() {
-      console.log('sign up')
+      this.TOGGLE_SIGNUP()
     }
   }
 };

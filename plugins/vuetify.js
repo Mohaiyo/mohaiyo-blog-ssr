@@ -3,8 +3,7 @@ import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#CBAA5C',
-    secondary: '#083759'
+    primary: '#2196f3'
   },
   icons: {
     iconfont: 'mdi', // default - only for display purposes

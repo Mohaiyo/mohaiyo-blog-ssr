@@ -25,6 +25,7 @@ export function createRouter () {
         route('/', 'home/index'),
         route('/inspire', 'InspireView'),
         route('/welcome', 'WelcomeView'),
+        route('/post/:slug', 'post/index'),
         // Global redirect for 404
         { path: '*', redirect: '/' }
       ]

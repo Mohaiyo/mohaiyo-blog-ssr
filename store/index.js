@@ -1,50 +1,26 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import getters from './getters'
 
 Vue.use(Vuex)
 
-export function createStore () {
+// https://webpack.js.org/guides/dependency-management/#requirecontext
+const modulesFiles = require.context('./modules', true, /\.js$/)
+
+// you do not need `import app from './modules/app'`
+// it will auto require all vuex module from modules file
+const modules = modulesFiles.keys().reduce((modules, modulePath) => {
+  // set './app.js' => 'app'
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = modulesFiles(modulePath)
+  modules[moduleName] = value.default
+  return modules
+}, {})
+
+export function createStore() {
   return new Vuex.Store({
-    state: {
-      articles: require('@/data/articles.json'),
-      drawer: false,
-      items: [{
-          text: '主页',
-          to: '/'
-        }
-      ]
-    },
-
-    getters: {
-      categories: state => {
-        const categories = []
-
-        for (const article of state.articles) {
-          if (
-            !article.category ||
-            categories.find(category => category.text === article.category)
-          ) continue
-
-          const text = article.category
-
-          categories.push({
-            text,
-            to: `/category/${text}`
-          })
-        }
-
-        return categories.sort().slice(0, 4)
-      },
-      links: (state, getters) => {
-        return state.items.concat(getters.categories)
-      }
-    },
-    mutations: {
-      setDrawer: (state, payload) => (state.drawer = payload),
-      toggleDrawer: state => (state.drawer = !state.drawer)
-    },
-    actions: {
-
-    }
+    modules,
+    getters
   })
 }
+
