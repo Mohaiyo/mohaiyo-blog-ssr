@@ -64,7 +64,7 @@
     name: 'Feed',
 
     components: {
-      FeedCard: () => import('@/components/FeedCard')
+      FeedCard: () => import('@/components/Feed/FeedCard')
     },
 
     data: () => ({

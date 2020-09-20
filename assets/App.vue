@@ -18,11 +18,11 @@
   export default {
     name: 'App',
     components: {
-      BackToTop: () => import('components/core/BackToTop'),
-      CoreDrawer: () => import('components/core/Drawer'),
-      CoreFooter: () => import('components/core/Footer'),
-      CoreToolbar: () => import('components/core/Toolbar'),
-      CoreView: () => import('components/core/View')
+      BackToTop: () => import('components/Core/BackToTop'),
+      CoreDrawer: () => import('components/Core/Drawer'),
+      CoreFooter: () => import('components/Core/Footer'),
+      CoreToolbar: () => import('components/Core/Toolbar'),
+      CoreView: () => import('components/Core/View')
     },
     mixins: [Meta],
     data () {

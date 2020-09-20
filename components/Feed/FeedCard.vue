@@ -45,11 +45,11 @@
           </v-flex>
           <v-flex align-self-end>
             <v-chip
-              class="text-uppercase ma-0"
+              class="text-uppercase ma-0 text-pointer"
               color="primary"
               label
               small
-               @click.stop="toPostDetail(value)"
+              @click.stop="toPostDetail(value)"
             >
               Read More
             </v-chip>
@@ -92,5 +92,8 @@
 <style>
 .v-image__image {
   transition: .3s linear;
+}
+.text-pointer{
+  cursor: pointer;
 }
 </style>
