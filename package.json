@@ -60,7 +60,7 @@
     "vue-style-loader": "^3.0.0",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.1",
